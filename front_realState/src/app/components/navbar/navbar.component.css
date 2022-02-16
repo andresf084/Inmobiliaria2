@@ -1,0 +1,10 @@
+.loggedUserInfo {
+    float: right;
+    font-weight: bolder;
+    margin: 0px 50px 0px 15px;
+    color: yellow;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}

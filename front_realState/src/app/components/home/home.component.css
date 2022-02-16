@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+.container {
+    position: relative;
+    width: 100%;
+}
+
+.container img {
+    width: 100%;
+    height: 100%;
+}
+
+.title {
+    font-family: 'Righteous', cursive;
+    color: white;
+    position: absolute;
+    top: 10%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    font-size: 5em;
+}
+
+.container .btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.actionBtn {
+    margin: 50px;
+    padding: 20px;
+    background-color: transparent;
+    color: white;
+    border-color: white;
+    font-weight: bolder;
+    font-size: 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.container .actionBtn:hover {
+    background-color: #3498DB;
+}

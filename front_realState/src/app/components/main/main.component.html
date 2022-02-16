@@ -1,0 +1,19 @@
+<div class="inmuebles">
+    <div *ngFor="let item of propertyMaster">
+        <mat-card class="example-card">
+            <mat-card-header>
+                <mat-card-title>{{item.title | titlecase}}</mat-card-title>
+            </mat-card-header>
+            <img mat-card-image src="assets/images/fachadaCasa1.jpg" alt="Photo of a house">
+            <mat-card-content>
+                    <h4><b>{{item.price | currency: "COP": "symbol"}}</b></h4>
+                    <p>{{item.city | titlecase}} - {{item.zone | titlecase}}</p>
+            </mat-card-content>
+            <mat-card-actions class="actionButtons">
+                <button mat-button color="accent">EDITAR</button>
+                <button mat-button color="accent">ELIMINAR</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>
+

@@ -1,0 +1,26 @@
+.inmuebles {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 100%;
+    margin: auto;
+}
+
+.example-card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 80%;
+    border-radius: 5%;
+    margin: 10px;
+    display: flexbox;
+    float: left;
+    background-color: #E5E8E8;
+}
+
+.example-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.actionButtons {
+    align-items: center;
+}

@@ -1,0 +1,16 @@
+<div>
+    <mat-toolbar color="accent">
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <span>Inmobiliaria Real House</span>
+        <a mat-button routerLink=".">Publicar inmuebles</a>
+        <a mat-button routerLink="." [routerLink]="['/advisers']">Gestionar usuarios</a>
+        <a mat-button routerLink="." (click)="logOut()">Cerrar sesión</a>
+        <span class="example-spacer"></span>
+        <span class="loggedUserInfo" *ngIf="isLogged()">
+            Bienvenido {{userInfo | titlecase}}
+        </span>
+    </mat-toolbar>
+</div>
+
