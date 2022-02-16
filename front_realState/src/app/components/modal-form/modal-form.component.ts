@@ -3,6 +3,7 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
 import { PropertiesService } from 'src/app/services/properties.service';
 import { ConfigService } from 'src/app/services/config.services';
 import { CityDataAPIService } from 'src/app/services/cities-api.service';
+import { UsersService } from 'src/app/services/users.service';
 
 
 @Component({
@@ -27,12 +28,15 @@ export class ModalFormComponent implements OnInit {
   public adviser: AbstractControl
   public status: AbstractControl
   public cityMaster: any[] = []
+  public propertiesType: any[] = ["Apartamento", "Casa", "Comercial", "Oficina"]
   public cityZones: any[] = ["Centro", "Norte", "Sur", "Oriente", "Occidente", "Noroccidente", "Nororiente", "Suroccidente", "Suroriente"]
+  public adviserMaster: any[] = []
 
   constructor(
     public propertiesService: PropertiesService,
     public formBuilder: FormBuilder,
     public cityDataAPIService: CityDataAPIService,
+    public usersService: UsersService,
     public config: ConfigService
   ) {
     this.form = this.formBuilder.group({
@@ -67,6 +71,7 @@ export class ModalFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.listCities();
+    this.listAdvisers();
   }
 
   listCities() {
@@ -76,11 +81,25 @@ export class ModalFormComponent implements OnInit {
         const res2: any = Object.values(res)
         if (res2[0].length > 0) {
           this.cityMaster = res2[0]
-          console.log(this.cityMaster)
+          //console.log(this.cityMaster)
         }
       },
       complete: () => { console.log('List cities success') }, // completeHandler
       error: () => { console.log('List cities error') }    // errorHandler
+    })
+  }
+
+  listAdvisers() {
+    this.usersService.listAdvisers().subscribe({
+      next: (res: any) => {
+        //console.log(res)
+        if (res.length > 0) {
+            this.adviserMaster = res;
+          }
+          console.log(this.adviserMaster);
+      },
+      complete: () => {console.log('Asesores listados')},
+      error: () => {console.log('Error al listar asesores')}
     })
   }
 
