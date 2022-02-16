@@ -1,3 +1,11 @@
+<div class="title">
+    <h1>GESTION DE INMUEBLES</h1>
+</div>
+
+<div class="createBtn" *ngIf="showCreateBtn()">
+    <button mat-raised-button color="accent">PUBLICAR INMUEBLE</button>
+</div>
+
 <div class="inmuebles">
     <div *ngFor="let item of propertyMaster">
         <mat-card class="example-card">
@@ -9,7 +17,7 @@
                     <h4><b>{{item.price | currency: "COP": "symbol"}}</b></h4>
                     <p>{{item.city | titlecase}} - {{item.zone | titlecase}}</p>
             </mat-card-content>
-            <mat-card-actions class="actionButtons">
+            <mat-card-actions class="actionButtons" *ngIf="showCreateBtn()">
                 <button mat-button color="accent">EDITAR</button>
                 <button mat-button color="accent">ELIMINAR</button>
             </mat-card-actions>

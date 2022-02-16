@@ -10,9 +10,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ModalFormComponent } from './components/modal-form/modal-form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from 'src/material.module';
-import {MatNativeDateModule} from '@angular/material/core';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import { MatNativeDateModule } from '@angular/material/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { AdvisersComponent } from './components/advisers/advisers.component';
 

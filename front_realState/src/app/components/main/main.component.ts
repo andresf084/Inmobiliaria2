@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {PropertiesService} from 'src/app/services/properties.service'
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-main',
@@ -8,13 +9,16 @@ import {PropertiesService} from 'src/app/services/properties.service'
 })
 export class MainComponent implements OnInit {
   public propertyMaster: any[] = []
+  public islog: any
 
   constructor(
-    private propertiesService: PropertiesService
+    private propertiesService: PropertiesService,
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
-    this.listProperties()
+    this.listProperties();
+    this.showCreateBtn();
   }
 
   listProperties() {
@@ -28,6 +32,11 @@ export class MainComponent implements OnInit {
       complete: () => {console.log('propiedades listadas')},
       error: () => {console.log('Error al listar propiedades')}
     })
+  }
+
+  showCreateBtn() {
+    this.islog = this.authService.isLogged();
+    return this.islog
   }
 
 }

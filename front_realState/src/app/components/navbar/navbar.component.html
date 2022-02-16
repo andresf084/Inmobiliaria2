@@ -4,10 +4,10 @@
             <mat-icon>menu</mat-icon>
         </button>
         <span>Inmobiliaria Real House</span>
-        <a mat-button routerLink="." [routerLink]="['/modalForm']">Publicar inmuebles</a>
+        <a mat-button routerLink="." [routerLink]="['/main']">Gestionar inmuebles</a>
         <a mat-button routerLink="." [routerLink]="['/advisers']">Gestionar usuarios</a>
-        <a mat-button routerLink="." (click)="logOut()">Cerrar sesión</a>
         <span class="example-spacer"></span>
+        <a mat-button routerLink="." (click)="logOut()">Cerrar sesión</a>
         <span class="loggedUserInfo" *ngIf="isLogged()">
             Bienvenido {{userInfo | titlecase}}
         </span>

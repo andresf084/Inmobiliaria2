@@ -24,3 +24,13 @@
 .actionButtons {
     align-items: center;
 }
+
+.createBtn {
+    margin: 1rem;
+}
+
+.title {
+    font-family: 'Righteous', cursive;
+    text-align: center;
+    margin-top: 2rem;
+}
