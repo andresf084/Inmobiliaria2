@@ -1,1 +1,48 @@
-<p>modal-form works!</p>
+<form class="example-form">
+    <div>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>{{config.config.modalFormComponent.colTitle}}</mat-label>
+            <textarea matInput placeholder="Título de la publicación..."></textarea>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>{{config.config.modalFormComponent.colBusinesstype}}</mat-label>
+            <mat-select>
+                <mat-option>Ninguno</mat-option>
+                <mat-option value="option1">Alquiler</mat-option>
+                <mat-option value="option2">Venta</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>{{config.config.modalFormComponent.colPropertytype}}</mat-label>
+            <mat-select>
+                <mat-option>Ninguno</mat-option>
+                <mat-option value="Apartamento">Apartamento</mat-option>
+                <mat-option value="Casa">Casa</mat-option>
+                <mat-option value="Comercial">Comercial</mat-option>
+                <mat-option value="Oficina">Oficina</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>{{config.config.modalFormComponent.colCity}}</mat-label>
+            <mat-select>
+                <mat-option>Ninguno</mat-option>
+                <mat-option *ngFor="let item of cityMaster" value="item.municipio">{{item.municipio}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>{{config.config.modalFormComponent.colZone}}</mat-label>
+            <mat-select>
+                <mat-option>Ninguno</mat-option>
+                <mat-option *ngFor="let item of cityZones" value="item">{{item}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+</form>

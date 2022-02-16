@@ -1,17 +1,23 @@
-<div class="productsTable">
-    <table class="table table-striped table-bordered tableMargin">
-        <thead class="tableHeader">
-            <tr class="tableHeader">
-                <th class="tableHeader" scope="col">{{config.config.advisersComponent.colname}}</th>
-                <th class="tableHeader" scope="col">{{config.config.advisersComponent.colIdType}}</th>
-                <th class="tableHeader" scope="col">{{config.config.advisersComponent.colIdentification}}</th>
-                <th class="tableHeader" scope="col">{{config.config.advisersComponent.colEmail}}</th>
-                <th class="tableHeader" scope="col">{{config.config.advisersComponent.colPhone1}}</th>
-                <th class="tableHeader" scope="col">{{config.config.advisersComponent.colPhone2}}</th>
-                <th class="tableHeader" scope="col">{{config.config.advisersComponent.colWorkCity}}</th>
-                <th class="tableHeader" scope="col">{{config.config.advisersComponent.colWorkZone}}</th>
-                <th class="tableHeader" scope="col">{{config.config.advisersComponent.colUser}}</th>
-                <th class="tableHeader" scope="col">{{config.config.advisersComponent.colStatus}}</th>
+<div id="title">
+    <h1>GESTION DE USUARIOS</h1>
+</div>
+<div id="createBtn">
+    <button mat-raised-button color="accent">CREAR USUARIO</button>
+</div>
+<div id="advisersTable">
+    <table id="advisers">
+        <thead>
+            <tr>
+                <th scope="col">{{config.config.advisersComponent.colname}}</th>
+                <th scope="col">{{config.config.advisersComponent.colIdType}}</th>
+                <th scope="col">{{config.config.advisersComponent.colIdentification}}</th>
+                <th scope="col">{{config.config.advisersComponent.colEmail}}</th>
+                <th scope="col">{{config.config.advisersComponent.colPhone1}}</th>
+                <th scope="col">{{config.config.advisersComponent.colPhone2}}</th>
+                <th scope="col">{{config.config.advisersComponent.colWorkCity}}</th>
+                <th scope="col">{{config.config.advisersComponent.colWorkZone}}</th>
+                <th scope="col">{{config.config.advisersComponent.colUser}}</th>
+                <th scope="col">{{config.config.advisersComponent.colStatus}}</th>
             </tr>
         </thead>
         <tbody *ngIf="adviserMaster.length > 0">
@@ -25,7 +31,6 @@
                 <td>{{item.workCity}}</td>
                 <td>{{item.workZone}}</td>
                 <td>{{item.user}}</td>
-                <td>{{item.password}}</td>
                 <td [ngStyle] = "{'color': item.status === true ? 'green' : 'red'}">{{item.status? "Activo": "Inactivo"}}</td>
             </tr>
         </tbody>

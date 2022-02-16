@@ -47,7 +47,6 @@ ctrlAdviserMaster.create = async (req, res) => {
 
 ctrlAdviserMaster.list = async (req, res) => {
     const advisers = await AdviserMaster.find({}).sort({"name": 1}).exec();
-    console.log(advisers);
     res.json(advisers);
 }
 
