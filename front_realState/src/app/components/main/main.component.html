@@ -19,7 +19,7 @@
             </mat-card-content>
             <mat-card-actions class="actionButtons" *ngIf="showCreateBtn()">
                 <button mat-button color="accent">EDITAR</button>
-                <button mat-button color="accent">ELIMINAR</button>
+                <button mat-button color="accent" (click)="deleteProperties(item._id)">ELIMINAR</button>
             </mat-card-actions>
         </mat-card>
     </div>

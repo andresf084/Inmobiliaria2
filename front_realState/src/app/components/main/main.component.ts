@@ -45,7 +45,7 @@ export class MainComponent implements OnInit {
   openDialog() {
     let dialogRef = this.dialog.open(
       ModalFormComponent,{
-        width: "900px",
+        width: "800px",
         height: "750px",
         disableClose: true
       }
@@ -54,5 +54,23 @@ export class MainComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
     });
   }
+
+  deleteProperties(_id: string) {
+    for (let index = 0; index < this.propertyMaster.length; index++) {
+      if (this.propertyMaster[index]._id == _id) {
+        this.propertiesService.deleteProperties(_id).subscribe({
+          next: (res: any) => {
+            if (res.status) {
+              this.propertyMaster.splice(index, 1)
+              console.log('Producto eliminado')
+            }
+          },
+          complete: () => { this.listProperties() }, // completeHandler
+          error: () => { console.log('Error al eliminar producto') }    // errorHandler
+        })
+      }
+    }
+  }
+
 
 }

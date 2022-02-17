@@ -1,18 +1,18 @@
 <h1 mat-dialog-title>Publicación de Inmuebles</h1>
 <mat-dialog-content class="mat-typography">
-    <form class="example-form">
+    <form class="example-form" [formGroup]="form">
 
         <div>
             <mat-form-field class="position fullWidth" appearance="fill">
                 <mat-label>{{config.config.modalFormComponent.colTitle}}</mat-label>
-                <input matInput placeholder="Título de la publicación...">
+                <input matInput placeholder="Título de la publicación..." formControlName="title">
             </mat-form-field>
         </div>
 
         <div>
             <mat-form-field class="position" appearance="fill">
                 <mat-label>{{config.config.modalFormComponent.colBusinesstype}}</mat-label>
-                <mat-select>
+                <mat-select formControlName="businessType">
                     <mat-option>Ninguno</mat-option>
                     <mat-option value="Alquiler">Alquiler</mat-option>
                     <mat-option value="venta">Venta</mat-option>
@@ -20,9 +20,9 @@
             </mat-form-field>
             <mat-form-field class="position" appearance="fill">
                 <mat-label>{{config.config.modalFormComponent.colPropertytype}}</mat-label>
-                <mat-select>
+                <mat-select formControlName="propertyType">
                     <mat-option>Ninguno</mat-option>
-                    <mat-option *ngFor="let item of propertiesType" value="item">{{item}}</mat-option>
+                    <mat-option *ngFor="let item of propertiesType" [value]="item">{{item}}</mat-option>
                 </mat-select>
             </mat-form-field>
         </div>
@@ -30,16 +30,16 @@
         <div>
             <mat-form-field class="position" appearance="fill">
                 <mat-label>{{config.config.modalFormComponent.colCity}}</mat-label>
-                <mat-select>
+                <mat-select formControlName="city">
                     <mat-option>Ninguno</mat-option>
-                    <mat-option *ngFor="let item of cityMaster" value="item">{{item}}</mat-option>
+                    <mat-option *ngFor="let item of cityMaster" [value]="item">{{item}}</mat-option>
                 </mat-select>
             </mat-form-field>
             <mat-form-field class="position" appearance="fill">
                 <mat-label>{{config.config.modalFormComponent.colZone}}</mat-label>
-                <mat-select>
+                <mat-select formControlName="zone">
                     <mat-option>Ninguno</mat-option>
-                    <mat-option *ngFor="let item of cityZones" value="item">{{item}}</mat-option>
+                    <mat-option *ngFor="let item of cityZones" [value]="item">{{item}}</mat-option>
                 </mat-select>
             </mat-form-field>
         </div>
@@ -47,29 +47,29 @@
         <div>
             <mat-form-field class="position fullWidth" appearance="fill">
                 <mat-label>{{config.config.modalFormComponent.colAddress}}</mat-label>
-                <input matInput placeholder="Dirección del inmueble...">
+                <input matInput placeholder="Dirección del inmueble..." formControlName="address">
             </mat-form-field>
         </div>
 
         <div>
             <mat-form-field class="position fullWidth" appearance="fill">
                 <mat-label>{{config.config.modalFormComponent.colDescription}}</mat-label>
-                <input matInput placeholder="Detalles del inmueble...">
+                <input matInput placeholder="Detalles del inmueble..." formControlName="description">
             </mat-form-field>
         </div>
 
         <div>
             <mat-form-field class="position" appearance="fill" floatLabel="always">
                 <mat-label>{{config.config.modalFormComponent.colRooms}}</mat-label>
-                <input matInput type="number" class="example-right-align" placeholder="0" min="1">
+                <input matInput type="number" class="example-right-align" placeholder="0" min="1" formControlName="rooms">
             </mat-form-field>
             <mat-form-field class="position" appearance="fill" floatLabel="always">
                 <mat-label>{{config.config.modalFormComponent.colBathrooms}}</mat-label>
-                <input matInput type="number" class="example-right-align" placeholder="0" min="1">
+                <input matInput type="number" class="example-right-align" placeholder="0" min="1" formControlName="bathrooms">
             </mat-form-field>
             <mat-form-field appearance="fill" floatLabel="always">
                 <mat-label>{{config.config.modalFormComponent.colPrice}}</mat-label>
-                <input matInput type="number" class="example-right-align" placeholder="0">
+                <input matInput type="number" class="example-right-align" placeholder="0" formControlName="price">
                 <span matPrefix>$&nbsp;</span>
                 <span matSuffix>.00</span>
             </mat-form-field>
@@ -78,9 +78,9 @@
         <div>
             <mat-form-field appearance="fill">
                 <mat-label>{{config.config.modalFormComponent.colAdviser}}</mat-label>
-                <mat-select>
+                <mat-select formControlName="adviser">
                     <mat-option>Ninguno</mat-option>
-                    <mat-option *ngFor="let item of adviserMaster" value="item.name">{{item.name}}</mat-option>
+                    <mat-option *ngFor="let item of adviserMaster" [value]="item.name">{{item.name}}</mat-option>
                 </mat-select>
             </mat-form-field>
         </div>

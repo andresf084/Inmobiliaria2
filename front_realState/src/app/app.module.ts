@@ -15,6 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { AdvisersComponent } from './components/advisers/advisers.component';
+import { ModalViewPropertiesComponent } from './components/modal-view-properties/modal-view-properties.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { AdvisersComponent } from './components/advisers/advisers.component';
     MainComponent,
     NavbarComponent,
     ModalFormComponent,
-    AdvisersComponent
+    AdvisersComponent,
+    ModalViewPropertiesComponent
   ],
   imports: [
     BrowserModule,
