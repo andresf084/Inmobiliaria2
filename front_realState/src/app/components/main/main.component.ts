@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {PropertiesService} from 'src/app/services/properties.service'
 import { AuthService } from 'src/app/services/auth.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalFormComponent } from '../modal-form/modal-form.component';
 
 @Component({
   selector: 'app-main',
@@ -12,6 +14,7 @@ export class MainComponent implements OnInit {
   public islog: any
 
   constructor(
+    public dialog: MatDialog,
     private propertiesService: PropertiesService,
     private authService: AuthService
   ) { }
@@ -37,6 +40,19 @@ export class MainComponent implements OnInit {
   showCreateBtn() {
     this.islog = this.authService.isLogged();
     return this.islog
+  }
+
+  openDialog() {
+    let dialogRef = this.dialog.open(
+      ModalFormComponent,{
+        width: "900px",
+        height: "750px",
+        disableClose: true
+      }
+      );
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
 }

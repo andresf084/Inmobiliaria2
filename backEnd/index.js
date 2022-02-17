@@ -12,6 +12,7 @@ app.use(express.json());
 app.use(cors());
 app.use("/", require('../backEnd/routes/index.routes'));
 
+/*
 app.get("/colombianCitys",cors(),async (req,res)=>{
     res.send(
         {
@@ -19,6 +20,8 @@ app.get("/colombianCitys",cors(),async (req,res)=>{
         }
     )
 })
+*/
+
 
 http.listen(config.port, () => {
     console.log('Server is running in port', config.port);

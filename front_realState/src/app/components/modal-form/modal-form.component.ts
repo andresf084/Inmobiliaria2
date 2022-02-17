@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PropertiesService } from 'src/app/services/properties.service';
 import { ConfigService } from 'src/app/services/config.services';
-import { CityDataAPIService } from 'src/app/services/cities-api.service';
+//import { CityDataAPIService } from 'src/app/services/cities-api.service';
 import { UsersService } from 'src/app/services/users.service';
 
 
@@ -27,7 +27,7 @@ export class ModalFormComponent implements OnInit {
   public bathrooms: AbstractControl
   public adviser: AbstractControl
   public status: AbstractControl
-  public cityMaster: any[] = []
+  public cityMaster: any[] = ["Bogotá D.C.", "Medellín", "Pereira"]
   public propertiesType: any[] = ["Apartamento", "Casa", "Comercial", "Oficina"]
   public cityZones: any[] = ["Centro", "Norte", "Sur", "Oriente", "Occidente", "Noroccidente", "Nororiente", "Suroccidente", "Suroriente"]
   public adviserMaster: any[] = []
@@ -35,7 +35,7 @@ export class ModalFormComponent implements OnInit {
   constructor(
     public propertiesService: PropertiesService,
     public formBuilder: FormBuilder,
-    public cityDataAPIService: CityDataAPIService,
+    //public cityDataAPIService: CityDataAPIService,
     public usersService: UsersService,
     public config: ConfigService
   ) {
@@ -70,10 +70,11 @@ export class ModalFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.listCities();
+    //this.listCities();
     this.listAdvisers();
   }
 
+  /**
   listCities() {
     this.cityDataAPIService.listCitiesAPI().subscribe({
       next: (res: any) => {
@@ -88,6 +89,8 @@ export class ModalFormComponent implements OnInit {
       error: () => { console.log('List cities error') }    // errorHandler
     })
   }
+   */
+
 
   listAdvisers() {
     this.usersService.listAdvisers().subscribe({
@@ -100,6 +103,17 @@ export class ModalFormComponent implements OnInit {
       },
       complete: () => {console.log('Asesores listados')},
       error: () => {console.log('Error al listar asesores')}
+    })
+  }
+
+  createProp() {
+    this.propertiesService.createProperties(this.form.value).subscribe({
+      next: (res: any) => {
+        console.log(res)
+        console.log('Inmueble publicado');
+      },
+      complete: () => {console.log('Proceso ceación inmueble completo')},
+      error: () => {console.log('Proceso ceación inmueble error')}
     })
   }
 

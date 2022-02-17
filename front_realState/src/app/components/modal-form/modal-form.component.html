@@ -1,96 +1,92 @@
-<form class="example-form">
-    <div>
-        <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>{{config.config.modalFormComponent.colTitle}}</mat-label>
-            <textarea matInput placeholder="Título de la publicación..."></textarea>
-        </mat-form-field>
-    </div>
-    <div>
-        <mat-form-field appearance="fill">
-            <mat-label>{{config.config.modalFormComponent.colBusinesstype}}</mat-label>
-            <mat-select>
-                <mat-option>Ninguno</mat-option>
-                <mat-option value="option1">Alquiler</mat-option>
-                <mat-option value="option2">Venta</mat-option>
-            </mat-select>
-        </mat-form-field>
-    </div>
-    <div>
-        <mat-form-field appearance="fill">
-            <mat-label>{{config.config.modalFormComponent.colPropertytype}}</mat-label>
-            <mat-select>
-                <mat-option>Ninguno</mat-option>
-                <mat-option *ngFor="let item of propertiesType" value="item">{{item}}</mat-option>
-            </mat-select>
-        </mat-form-field>
-    </div>
-    <div>
-        <mat-form-field appearance="fill">
-            <mat-label>{{config.config.modalFormComponent.colCity}}</mat-label>
-            <mat-select>
-                <mat-option>Ninguno</mat-option>
-                <mat-option *ngFor="let item of cityMaster" value="item.municipio">{{item.municipio}}</mat-option>
-            </mat-select>
-        </mat-form-field>
-    </div>
-    <div>
-        <mat-form-field appearance="fill">
-            <mat-label>{{config.config.modalFormComponent.colZone}}</mat-label>
-            <mat-select>
-                <mat-option>Ninguno</mat-option>
-                <mat-option *ngFor="let item of cityZones" value="item">{{item}}</mat-option>
-            </mat-select>
-        </mat-form-field>
-    </div>
-    <div>
-        <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>{{config.config.modalFormComponent.colAddress}}</mat-label>
-            <textarea matInput placeholder="Dirección del inmueble..."></textarea>
-        </mat-form-field>
-    </div>
-    <div>
-        <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>{{config.config.modalFormComponent.colDescription}}</mat-label>
-            <textarea matInput placeholder="Detalles del inmueble..."></textarea>
-        </mat-form-field>
-    </div>
-    <div>
-        <mat-form-field appearance="fill" floatLabel="always">
-            <mat-label>{{config.config.modalFormComponent.colPrice}}</mat-label>
-            <input matInput type="number" class="example-right-align" placeholder="0">
-            <span matPrefix>$&nbsp;</span>
-            <span matSuffix>.00</span>
-        </mat-form-field>
-    </div>
-    <div>
-        <mat-form-field appearance="fill" floatLabel="always">
-            <mat-label>{{config.config.modalFormComponent.colRooms}}</mat-label>
-            <input matInput type="number" class="example-right-align" placeholder="0" min="1">
-        </mat-form-field>
-    </div>
-    <div>
-        <mat-form-field appearance="fill" floatLabel="always">
-            <mat-label>{{config.config.modalFormComponent.colBathrooms}}</mat-label>
-            <input matInput type="number" class="example-right-align" placeholder="0" min="1">
-        </mat-form-field>
-    </div>
-    <div>
-        <mat-form-field appearance="fill">
-            <mat-label>{{config.config.modalFormComponent.colAdviser}}</mat-label>
-            <mat-select>
-                <mat-option>Ninguno</mat-option>
-                <mat-option *ngFor="let item of adviserMaster" value="item.name">{{item.name}}</mat-option>
-            </mat-select>
-        </mat-form-field>
-    </div>
-    <div>
-        <mat-form-field appearance="fill">
-            <mat-label>{{config.config.modalFormComponent.colStatus}}</mat-label>
-            <mat-select>
-                <mat-option>Ninguno</mat-option>
-                <mat-option value="true">Activo</mat-option>
-                <mat-option value="false">Inactivo</mat-option>
-            </mat-select>
-        </mat-form-field>
-    </div>
-</form>
+<h1 mat-dialog-title>Publicación de Inmuebles</h1>
+<mat-dialog-content class="mat-typography">
+    <form class="example-form">
+
+        <div>
+            <mat-form-field class="position fullWidth" appearance="fill">
+                <mat-label>{{config.config.modalFormComponent.colTitle}}</mat-label>
+                <input matInput placeholder="Título de la publicación...">
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field class="position" appearance="fill">
+                <mat-label>{{config.config.modalFormComponent.colBusinesstype}}</mat-label>
+                <mat-select>
+                    <mat-option>Ninguno</mat-option>
+                    <mat-option value="Alquiler">Alquiler</mat-option>
+                    <mat-option value="venta">Venta</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="position" appearance="fill">
+                <mat-label>{{config.config.modalFormComponent.colPropertytype}}</mat-label>
+                <mat-select>
+                    <mat-option>Ninguno</mat-option>
+                    <mat-option *ngFor="let item of propertiesType" value="item">{{item}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field class="position" appearance="fill">
+                <mat-label>{{config.config.modalFormComponent.colCity}}</mat-label>
+                <mat-select>
+                    <mat-option>Ninguno</mat-option>
+                    <mat-option *ngFor="let item of cityMaster" value="item">{{item}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="position" appearance="fill">
+                <mat-label>{{config.config.modalFormComponent.colZone}}</mat-label>
+                <mat-select>
+                    <mat-option>Ninguno</mat-option>
+                    <mat-option *ngFor="let item of cityZones" value="item">{{item}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field class="position fullWidth" appearance="fill">
+                <mat-label>{{config.config.modalFormComponent.colAddress}}</mat-label>
+                <input matInput placeholder="Dirección del inmueble...">
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field class="position fullWidth" appearance="fill">
+                <mat-label>{{config.config.modalFormComponent.colDescription}}</mat-label>
+                <input matInput placeholder="Detalles del inmueble...">
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field class="position" appearance="fill" floatLabel="always">
+                <mat-label>{{config.config.modalFormComponent.colRooms}}</mat-label>
+                <input matInput type="number" class="example-right-align" placeholder="0" min="1">
+            </mat-form-field>
+            <mat-form-field class="position" appearance="fill" floatLabel="always">
+                <mat-label>{{config.config.modalFormComponent.colBathrooms}}</mat-label>
+                <input matInput type="number" class="example-right-align" placeholder="0" min="1">
+            </mat-form-field>
+            <mat-form-field appearance="fill" floatLabel="always">
+                <mat-label>{{config.config.modalFormComponent.colPrice}}</mat-label>
+                <input matInput type="number" class="example-right-align" placeholder="0">
+                <span matPrefix>$&nbsp;</span>
+                <span matSuffix>.00</span>
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>{{config.config.modalFormComponent.colAdviser}}</mat-label>
+                <mat-select>
+                    <mat-option>Ninguno</mat-option>
+                    <mat-option *ngFor="let item of adviserMaster" value="item.name">{{item.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="createProp()">Guardar Información</button>
+    <button mat-button mat-dialog-close>Cancelar</button>
+</mat-dialog-actions>
