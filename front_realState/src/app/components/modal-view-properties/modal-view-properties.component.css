@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+.modal {
+    border-radius: 25%;
+}
+
+.name {
+    font-family: 'Righteous', cursive;
+    margin: 0rem 1rem 0rem 1rem;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.propertyImg {
+    align-items: center;
+}
+
+.img {
+    border-radius: 10px;
+    max-width: 50%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.title h2 {
+    font-family: 'Righteous', cursive;
+    font-weight: bolder;
+    margin: 10px;
+}
+
+.indicators {
+    margin: 1rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.indicators span {
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.indicators span img {
+    margin: 0px 5px 0px 0px;
+}
+
+.price {
+    font-family: 'Righteous', cursive;
+    font-size: 1.3rem;
+    margin: 2rem 0rem 1rem 1rem;
+}
+
+.description {
+    margin: 2rem;
+}
+
+.description div {
+    margin: 5px;
+    font-family: 'Righteous', cursive;
+    font-size: 1rem;
+}
+
+.contact {
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 20px;
+    padding: 1rem 0.5rem 1rem 0.5rem;
+    background-color: lightblue;
+    border-radius: 10px;
+    border-width: 2px;
+}
+
+.contact span {
+    margin: 1rem;
+}

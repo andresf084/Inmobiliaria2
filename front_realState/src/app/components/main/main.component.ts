@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {PropertiesService} from 'src/app/services/properties.service'
+import { PropertiesService } from 'src/app/services/properties.service'
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalFormComponent } from '../modal-form/modal-form.component';
+import { ModalViewPropertiesComponent } from '../modal-view-properties/modal-view-properties.component';
 
 @Component({
   selector: 'app-main',
@@ -15,6 +17,7 @@ export class MainComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
+    private routerService: Router,
     private propertiesService: PropertiesService,
     private authService: AuthService
   ) { }
@@ -29,7 +32,7 @@ export class MainComponent implements OnInit {
       next: (res: any) => {
         if (res.length > 0) {
           this.propertyMaster = res
-          console.log(this.propertyMaster)
+          //console.log(this.propertyMaster)
         }
       },
       complete: () => {console.log('propiedades listadas')},
@@ -62,7 +65,7 @@ export class MainComponent implements OnInit {
           next: (res: any) => {
             if (res.status) {
               this.propertyMaster.splice(index, 1)
-              console.log('Producto eliminado')
+              console.log('Inmueble eliminado')
             }
           },
           complete: () => { this.listProperties() }, // completeHandler
@@ -70,6 +73,36 @@ export class MainComponent implements OnInit {
         })
       }
     }
+  }
+
+  viewPropeties(item: any) {
+    let dialogRef = this.dialog.open(
+      ModalViewPropertiesComponent,
+      {
+        data: {
+          title: item.title,
+          businessType: item.businessType,
+          propertyType: item.propertyType,
+          city: item.city,
+          zone: item.zone,
+          address: item.address,
+          description: item.description,
+          price: item.price,
+          propertyImages: item.propertyImages,
+          rooms: item.rooms,
+          bathrooms: item.bathrooms,
+          adviser: item.adviser,
+          status: item.status
+        },
+        width: "800px",
+        height: "900px",
+        disableClose: true,
+        restoreFocus: true
+      }
+      );
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
 

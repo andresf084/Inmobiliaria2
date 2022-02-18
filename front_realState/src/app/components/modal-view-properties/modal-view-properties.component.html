@@ -1,1 +1,51 @@
-<p>modal-view-properties works!</p>
+<div class="modal">
+    <div class="header">
+        <mat-toolbar>
+            <img src="assets\images\logoRealHouse_32px.png" alt="logo-RealHouse">
+            <span class="name">Inmobiliaria Real House</span>
+            <span class="example-spacer"></span>
+            <mat-icon class="close-icon" color="warn" [mat-dialog-close]="true" (click)="closeModalView()">close</mat-icon>
+        </mat-toolbar>
+    </div>
+    <div class="propertyImg">
+        <img class="img" src="assets\images\fachadaCasa2.jpg" alt="inmueble-realHouse">
+    </div>
+    <div class="title">
+        <h2>{{data.title | titlecase}}</h2>
+    </div>
+
+    <div class="indicators">
+        <span>
+            <img src="assets\images\indicatorCity.png" alt="">
+            {{data.city | titlecase}}
+        </span>
+        <span>
+            <img src="assets\images\indicatorZone.png" alt="">
+            {{data.zone | titlecase}}
+        </span>
+        <span>
+            <img src="assets\images\indicatorRooms.png" alt="">
+            {{data.rooms}}
+        </span>
+        <span>
+            <img src="assets\images\indicatorBathroom.png" alt="">
+            {{data.bathrooms}}
+        </span>
+    </div>
+
+    <div class="price">
+        PRECIO {{data.price | currency: "COP": "symbol"}}
+    </div>
+
+    <div class="description">
+        <div>Descripción del inmueble</div>
+        {{data.description}}
+    </div>
+    <br>
+    <div> <b>Contacta a tu asesor</b> </div>
+    <div class="contact">
+        <img src="assets\images\indicatorAdviser.png" alt="">
+        <span>{{data.adviser | titlecase}}</span>
+    </div>
+
+</div>

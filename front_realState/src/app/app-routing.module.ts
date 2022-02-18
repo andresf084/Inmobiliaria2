@@ -5,6 +5,7 @@ import { LoginComponent } from './components/login/login.component';
 import { MainComponent } from './components/main/main.component';
 import { AdvisersComponent } from './components/advisers/advisers.component';
 import { ModalFormComponent } from './components/modal-form/modal-form.component';
+import { ModalViewPropertiesComponent } from './components/modal-view-properties/modal-view-properties.component';
 
 const routes: Routes = [
   {path: "", component: HomeComponent, pathMatch: "full"},
@@ -12,7 +13,8 @@ const routes: Routes = [
   {path: "login", component: LoginComponent, pathMatch: "full"},
   {path: "main", component: MainComponent, pathMatch: "full"},
   {path: "advisers", component: AdvisersComponent, pathMatch: "full"},
-  {path: "modalForm", component: ModalFormComponent, pathMatch: "full"}
+  {path: "modalForm", component: ModalFormComponent, pathMatch: "full"},
+  {path: "modalView", component: ModalViewPropertiesComponent}
 ];
 
 @NgModule({
