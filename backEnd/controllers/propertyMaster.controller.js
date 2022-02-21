@@ -14,6 +14,7 @@ ctrlPropertyMaster.create = async (req, res) => {
         propertyImages: req.body.propertyImages,
         rooms: req.body.rooms,
         bathrooms: req.body.bathrooms,
+        area: req.body.area,
         adviser: req.body.adviser
     });
     await newProperty.save();
@@ -38,6 +39,7 @@ ctrlPropertyMaster.update = async (req, res) => {
         propertyImages,
         rooms,
         bathrooms,
+        area,
         adviser,
         status
         } = req.body;
@@ -53,6 +55,7 @@ ctrlPropertyMaster.update = async (req, res) => {
         propertyImages: propertyImages,
         rooms: rooms,
         bathrooms: bathrooms,
+        area: area,
         adviser: adviser,
         status: status}
     await PropertyMaster.findOneAndUpdate(filter, update);
@@ -66,13 +69,32 @@ ctrlPropertyMaster.delete = async (req, res) => {
 };
 
 ctrlPropertyMaster.search = async (req, res ) => {
-    console.log("pasó el middleware(next) y por eso me estoy ejecuntando")
-    console.log(req.query)
+    //console.log("pasó el middleware(next) y por eso me estoy ejecuntando")
+    //console.log(req.query)
     PropertyMaster.find(req.query,(err, apartamentos)=>{
         if(err) res.send(err)
         res.send(apartamentos)
     })
     //res.send(req.query)
 };
+
+/**
+ctrlPropertyMaster.search2 = async (req, res ) => {
+    console.log(req.query);
+    const apartamentos = await PropertyMaster.find(
+        {$or: [
+            {businessType: req.body.businessType},
+            {propertyType: req.body.propertyType},
+            {city: req.body.city},
+            {zone: req.body.zone},
+            {price: {'$lte':req.query.price}},
+            {rooms: {'$lte':req.query.rooms}},
+            {bathrooms: {'$lte':req.query.bathrooms}},
+            {area: {'$lte':req.query.area}},
+            {adviser: req.body.adviser}
+        ]} )
+    res.json(apartamentos)
+};
+ */
 
 module.exports = ctrlPropertyMaster

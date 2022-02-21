@@ -13,6 +13,7 @@ var propertyMasterSchema = new mongoose.Schema
     propertyImages: {type: String},
     rooms: {type: Number},
     bathrooms: {type: Number},
+    area: {type: Number},
     adviser: {type: String, tittle: true},
     status: {type: Boolean, default: true},
     created_at: {type: Date, default: Date.now()}

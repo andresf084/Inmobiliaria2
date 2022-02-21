@@ -36,7 +36,7 @@
 .indicators {
     margin: 1rem;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
 }
 
 .indicators span {
@@ -46,6 +46,8 @@
     display: flex;
     -webkit-box-align: center;
     align-items: center;
+    padding-left: auto;
+    padding-right: auto;
 }
 
 .indicators span img {
@@ -84,4 +86,13 @@
 
 .contact span {
     margin: 1rem;
+}
+
+.address span {
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
 }

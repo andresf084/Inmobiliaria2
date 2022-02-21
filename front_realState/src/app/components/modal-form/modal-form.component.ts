@@ -25,6 +25,7 @@ export class ModalFormComponent implements OnInit {
   public propertyImages: AbstractControl
   public rooms: AbstractControl
   public bathrooms: AbstractControl
+  public area: AbstractControl
   public adviser: AbstractControl
   public status: AbstractControl
   public cityMaster: any[] = ["Bogotá D.C.", "Medellín", "Pereira"]
@@ -51,6 +52,7 @@ export class ModalFormComponent implements OnInit {
       propertyImages: ['', Validators.required],
       rooms: ['', Validators.required],
       bathrooms: ['', Validators.required],
+      area: ['', Validators.required],
       adviser: ['', Validators.required],
       status: ['', Validators.required]
     })
@@ -65,6 +67,7 @@ export class ModalFormComponent implements OnInit {
     this. propertyImages = this.form.controls['propertyImages']
     this. rooms = this.form.controls['rooms']
     this. bathrooms = this.form.controls['bathrooms']
+    this. area = this.form.controls['area']
     this. adviser = this.form.controls['adviser']
     this. status = this.form.controls['status']
   }

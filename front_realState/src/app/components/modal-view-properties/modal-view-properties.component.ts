@@ -23,6 +23,7 @@ export class ModalViewPropertiesComponent implements OnInit {
               propertyImages: string,
               rooms: number,
               bathrooms: number,
+              area: number,
               adviser: string
             },
             public matDialogref: MatDialogRef<ModalViewPropertiesComponent>

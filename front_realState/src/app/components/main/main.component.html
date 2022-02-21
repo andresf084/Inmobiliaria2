@@ -6,11 +6,111 @@
     <button mat-raised-button color="accent" (click)="openDialog()">PUBLICAR INMUEBLE</button>
 </div>
 
+<div class="filter">
+    <h3>Búsqueda de inmuebles</h3>
+    <form [formGroup]="form">
+        <div>
+            <span>
+                <mat-form-field appearance="fill">
+                    <mat-label>Tipo de negocio</mat-label>
+                    <mat-select formControlName="businessType">
+                        <mat-option>Ninguno</mat-option>
+                        <mat-option *ngFor="let item of bussinessType" [value]="item">{{item}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </span>
+            <span>
+                <mat-form-field appearance="fill">
+                    <mat-label>Tipo de propiedad</mat-label>
+                    <mat-select formControlName="propertyType">
+                        <mat-option>Ninguno</mat-option>
+                        <mat-option *ngFor="let item of propertiesType" [value]="item">{{item}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </span>
+            <span>
+                <mat-form-field appearance="fill">
+                    <mat-label>Ciudad</mat-label>
+                    <mat-select formControlName="city">
+                        <mat-option>Ninguno</mat-option>
+                        <mat-option *ngFor="let item of cityMaster" [value]="item">{{item}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </span>
+            <span>
+                <mat-form-field appearance="fill">
+                    <mat-label>Zona de la ciudad</mat-label>
+                    <mat-select formControlName="city">
+                        <mat-option>Ninguno</mat-option>
+                        <mat-option *ngFor="let item of cityZones" [value]="item">{{item}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </span>
+            <span>
+                <mat-form-field appearance="fill">
+                    <mat-label>Asesor</mat-label>
+                    <mat-select formControlName="city">
+                        <mat-option>Ninguno</mat-option>
+                        <mat-option *ngFor="let item of adviserMaster" [value]="item">{{item.name | titlecase}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </span>
+        </div>
+        <div>
+            <span>
+                <mat-label>Precio(en millones)</mat-label>
+                <mat-slider
+                formControlName="price"
+                thumbLabel
+                [displayWith]="formatLabelPrice"
+                tickInterval="5000000"
+                step="5000000"
+                min="0"
+                max="300000000"
+                aria-label="units"></mat-slider>
+            </span>
+            <span>
+                <mat-label><img src="assets\images\indicatorRooms.png" alt=""></mat-label>
+                <mat-slider
+                formControlName="rooms"
+                thumbLabel
+                tickInterval="1"
+                step="1"
+                min="1"
+                max="20"
+                aria-label="units"></mat-slider>
+            </span>
+            <span>
+                <mat-label><img src="assets\images\indicatorBathroom.png" alt=""></mat-label>
+                <mat-slider
+                formControlName="bathrooms"
+                thumbLabel
+                tickInterval="1"
+                step="1"
+                min="1"
+                max="20"
+                aria-label="units"></mat-slider>
+            </span>
+            <span>
+                <mat-label><img src="assets\images\indicatorArea.png" alt=""></mat-label>
+                <mat-slider
+                formControlName="area"
+                thumbLabel
+                tickInterval="5"
+                step="5"
+                min="0"
+                max="200"
+                aria-label="units"></mat-slider>
+            </span>
+        </div>
+    </form>
+</div>
+
 <div class="inmuebles">
     <div *ngFor="let item of propertyMaster">
         <mat-card class="example-card" (click)="viewPropeties(item)">
             <mat-card-header>
-                <mat-card-title>{{item.title | titlecase}}</mat-card-title>
+                <mat-card-title class="cardTitle">{{item.title | titlecase}}</mat-card-title>
             </mat-card-header>
             <img mat-card-image src="assets/images/fachadaCasa1.jpg" alt="Photo of a house">
             <mat-card-content>
