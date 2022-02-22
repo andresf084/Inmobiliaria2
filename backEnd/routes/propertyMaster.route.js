@@ -8,6 +8,6 @@ router.post('/', propertyMaster.create)
 router.get('/', propertyMaster.list)
 router.delete('/:_id', propertyMaster.delete)
 router.put('/', propertyMaster.update)
-router.get('/search', construirBusqueda, propertyMaster.search)
+router.post('/search', construirBusqueda, propertyMaster.search)
 
 module.exports = router

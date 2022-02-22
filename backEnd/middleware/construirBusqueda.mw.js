@@ -1,16 +1,15 @@
 const construirBusqueda = (req,res,next)=>{
     try{
         //console.log(req.query)
-        req.query.zone? req.query.zone = req.query.zone.split(","): console.log("no se va a buscar por ubicación")
-        //req.query.canon? req.query.canon = JSON.parse(req.query.canon) : console.log("no llegó canon, no haré conversión") //si viene el string desde el front ""
-        req.query.price? req.query.price = {'$lte':req.query.price} : console.log("no llegó canon, no haré conversión")
-        req.query.area? req.query.area = {'$lte':req.query.area} : console.log("no llegó dato de área")
-        req.query.rooms? req.query.rooms = {'$lte':req.query.rooms} : console.log("no llegó dato de área")
-        req.query.bathrooms? req.query.bathrooms = {'$lte':req.query.bathrooms} : console.log("no llegó dato de área")
-        req.query.businessType? req.query.businessType = req.query.businessType.split(","): console.log("no se va a buscar por tipo de negocio")
-        req.query.propertyType? req.query.propertyType = req.query.propertyType.split(","): console.log("no se va a buscar por tipo de propiedad")
-        req.query.city? req.query.city = req.query.city.split(","): console.log("no se va a buscar por ciudad")
-        req.query.zone? req.query.zone = req.query.zone.split(","): console.log("no se va a buscar por zona")
+        req.body.zone? req.body.zone = req.body.zone.split(","): console.log("no se va a buscar por zona")
+        //req.body.canon? req.body.canon = JSON.parse(req.body.canon) : console.log("no llegó canon, no haré conversión") //si viene el string desde el front ""
+        req.body.price? req.body.price = {'$lte':req.body.price} : console.log("no llegó precio")
+        req.body.area? req.body.area = {'$lte':req.body.area} : console.log("no llegó dato de área")
+        req.body.rooms? req.body.rooms = {'$lte':req.body.rooms} : console.log("no llegó dato de habitaciones")
+        req.body.bathrooms? req.body.bathrooms = {'$lte':req.body.bathrooms} : console.log("no llegó dato de baños")
+        req.body.businessType? req.body.businessType = req.body.businessType: console.log("no se va a buscar por tipo de negocio")
+        req.body.propertyType? req.body.propertyType = req.body.propertyType: console.log("no se va a buscar por tipo de propiedad")
+        req.body.city? req.body.city = req.body.city: console.log("no se va a buscar por ciudad")
         next()
     }catch(err){
         res.status(500).send({"msg":"ocurrió un error: "+err})

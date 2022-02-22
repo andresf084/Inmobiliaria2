@@ -7,15 +7,15 @@
 </div>
 
 <div class="filter">
-    <h3>Búsqueda de inmuebles</h3>
+    <h3>Filtra el listado de inmuebles</h3>
     <form [formGroup]="form">
         <div>
-            <span>
+            <span class="filterElem">
                 <mat-form-field appearance="fill">
                     <mat-label>Tipo de negocio</mat-label>
                     <mat-select formControlName="businessType">
                         <mat-option>Ninguno</mat-option>
-                        <mat-option *ngFor="let item of bussinessType" [value]="item">{{item}}</mat-option>
+                        <mat-option *ngFor="let item of bussinessType" [value]="item">{{item | titlecase}}</mat-option>
                     </mat-select>
                 </mat-form-field>
             </span>
@@ -24,7 +24,7 @@
                     <mat-label>Tipo de propiedad</mat-label>
                     <mat-select formControlName="propertyType">
                         <mat-option>Ninguno</mat-option>
-                        <mat-option *ngFor="let item of propertiesType" [value]="item">{{item}}</mat-option>
+                        <mat-option *ngFor="let item of propertiesType" [value]="item">{{item | titlecase}}</mat-option>
                     </mat-select>
                 </mat-form-field>
             </span>
@@ -33,25 +33,25 @@
                     <mat-label>Ciudad</mat-label>
                     <mat-select formControlName="city">
                         <mat-option>Ninguno</mat-option>
-                        <mat-option *ngFor="let item of cityMaster" [value]="item">{{item}}</mat-option>
+                        <mat-option *ngFor="let item of cityMaster" [value]="item">{{item | titlecase}}</mat-option>
                     </mat-select>
                 </mat-form-field>
             </span>
             <span>
                 <mat-form-field appearance="fill">
                     <mat-label>Zona de la ciudad</mat-label>
-                    <mat-select formControlName="city">
+                    <mat-select formControlName="zone">
                         <mat-option>Ninguno</mat-option>
-                        <mat-option *ngFor="let item of cityZones" [value]="item">{{item}}</mat-option>
+                        <mat-option *ngFor="let item of cityZones" [value]="item">{{item | titlecase}}</mat-option>
                     </mat-select>
                 </mat-form-field>
             </span>
             <span>
                 <mat-form-field appearance="fill">
                     <mat-label>Asesor</mat-label>
-                    <mat-select formControlName="city">
+                    <mat-select formControlName="adviser">
                         <mat-option>Ninguno</mat-option>
-                        <mat-option *ngFor="let item of adviserMaster" [value]="item">{{item.name | titlecase}}</mat-option>
+                        <mat-option *ngFor="let adviser of adviserMaster" [value]="adviser.name">{{adviser.name | titlecase}}</mat-option>
                     </mat-select>
                 </mat-form-field>
             </span>
@@ -104,6 +104,9 @@
             </span>
         </div>
     </form>
+    <div>
+        <button mat-raised-button color="accent" (click)="searchProperties()">Filtra los inmuebles</button>
+    </div>
 </div>
 
 <div class="inmuebles">

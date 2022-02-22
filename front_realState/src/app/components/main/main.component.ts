@@ -23,12 +23,13 @@ export class MainComponent implements OnInit {
     return value;
   }
 
+  public params: any[] = []
   public propertyMaster: any[] = []
   public adviserMaster: any[] = []
-  public bussinessType: any[] = ["Alquiler", "Venta"]
-  public propertiesType: any[] = ["Apartamento", "Casa", "Comercial", "Oficina"]
-  public cityMaster: any[] = ["Bogotá D.C.", "Medellín", "Pereira"]
-  public cityZones: any[] = ["Centro", "Norte", "Sur", "Oriente", "Occidente", "Noroccidente", "Nororiente", "Suroccidente", "Suroriente"]
+  public bussinessType: any[] = ["alquiler", "venta"]
+  public propertiesType: any[] = ["apartamento", "casa", "comercial", "oficina"]
+  public cityMaster: any[] = ["bogotá d.c.", "medellín", "pereira"]
+  public cityZones: any[] = ["centro", "norte", "sur", "oriente", "occidente", "noroccidente", "nororiente", "suroccidente", "suroriente"]
   public minPrice: any
   public maxPrice: any
   public islog: any
@@ -58,21 +59,20 @@ export class MainComponent implements OnInit {
       city: [''],
       zone: [''],
       price: [''],
-      propertyImages: [''],
       rooms: [''],
       bathrooms: [''],
       area: [''],
       adviser: [''],
     })
-    this. businessType = this.form.controls['businessType']
-    this. propertyType = this.form.controls['propertyType']
-    this. city = this.form.controls['city']
-    this. zone = this.form.controls['zone']
-    this. price = this.form.controls['price']
-    this. rooms = this.form.controls['rooms']
-    this. bathrooms = this.form.controls['bathrooms']
-    this. area = this.form.controls['area']
-    this. adviser = this.form.controls['adviser']
+    this.businessType = this.form.controls['businessType']
+    this.propertyType = this.form.controls['propertyType']
+    this.city = this.form.controls['city']
+    this.zone = this.form.controls['zone']
+    this.price = this.form.controls['price']
+    this.rooms = this.form.controls['rooms']
+    this.bathrooms = this.form.controls['bathrooms']
+    this.area = this.form.controls['area']
+    this.adviser = this.form.controls['adviser']
   }
 
   ngOnInit(): void {
@@ -95,7 +95,21 @@ export class MainComponent implements OnInit {
   }
 
   searchProperties() {
-
+    var dataForm = this.form.value
+    for (let prop in dataForm) {
+      if (dataForm[prop] == "") {
+        delete dataForm[prop]
+      }
+    }
+    //console.log(dataForm)
+    this.propertiesService.searchProperties(dataForm).subscribe({
+      next: (res: any) => {
+        console.log(res);
+        this.propertyMaster = res;
+      },
+      complete: () => {console.log('filtrado con exito')},
+      error: () => {console.log('Proceso filtrado error')}
+    })
   }
 
   showCreateBtn() {

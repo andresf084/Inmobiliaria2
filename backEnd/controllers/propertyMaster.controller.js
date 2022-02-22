@@ -68,33 +68,35 @@ ctrlPropertyMaster.delete = async (req, res) => {
     res.json({ status: true });
 };
 
+
 ctrlPropertyMaster.search = async (req, res ) => {
-    //console.log("pasó el middleware(next) y por eso me estoy ejecuntando")
-    //console.log(req.query)
-    PropertyMaster.find(req.query,(err, apartamentos)=>{
+    console.log("pasó el middleware(next) y por eso me estoy ejecuntando")
+    console.log(req.body)
+    PropertyMaster.find(req.body,(err, apartamentos)=>{
         if(err) res.send(err)
         res.send(apartamentos)
     })
     //res.send(req.query)
 };
 
+
 /**
-ctrlPropertyMaster.search2 = async (req, res ) => {
-    console.log(req.query);
-    const apartamentos = await PropertyMaster.find(
-        {$or: [
-            {businessType: req.body.businessType},
-            {propertyType: req.body.propertyType},
-            {city: req.body.city},
-            {zone: req.body.zone},
-            {price: {'$lte':req.query.price}},
-            {rooms: {'$lte':req.query.rooms}},
-            {bathrooms: {'$lte':req.query.bathrooms}},
-            {area: {'$lte':req.query.area}},
-            {adviser: req.body.adviser}
-        ]} )
+ctrlPropertyMaster.search = async (req, res ) => {
+    console.log(req.body);
+    const apartamentos = await PropertyMaster.find({
+        businessType: req.body.businessType,
+        propertyType: req.body.propertyType,
+        city: req.body.city,
+        zone: req.body.zone,
+        price: {'$lte':req.query.price},
+        rooms: {'$lte':req.query.rooms},
+        bathrooms: {'$lte':req.query.bathrooms},
+        area: {'$lte':req.query.area},
+        adviser: req.body.adviser
+        })
     res.json(apartamentos)
 };
  */
+
 
 module.exports = ctrlPropertyMaster

@@ -45,13 +45,23 @@ mat-slider {
 
 
 .filter {
-    border: solid;
-    border-color: darkcyan;
-    border-radius: 10px;
+    border: solid 1px;
+    border-color: black;
+    border-radius: 15px;
     align-items: center;
     margin-left: auto;
     margin-right: auto;
     margin-top: 2rem;
     margin-bottom: 2rem;
     text-align: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    width: 75%;
+}
+
+.filter form div span {
+    margin: 10px;
+    align-items: center;
+    padding-left: auto;
+    padding-right: auto;
 }
