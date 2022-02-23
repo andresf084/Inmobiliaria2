@@ -23,7 +23,6 @@ export class MainComponent implements OnInit {
     return value;
   }
 
-  public params: any[] = []
   public propertyMaster: any[] = []
   public adviserMaster: any[] = []
   public bussinessType: any[] = ["alquiler", "venta"]
@@ -101,7 +100,7 @@ export class MainComponent implements OnInit {
         delete dataForm[prop]
       }
     }
-    //console.log(dataForm)
+    console.log(dataForm)
     this.propertiesService.searchProperties(dataForm).subscribe({
       next: (res: any) => {
         console.log(res);
